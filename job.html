@@ -1,4 +1,4 @@
-<!doctype html>
+ <!doctype html>
 <html lang="en">
   <head>
     <!-- Required meta tags -->
@@ -52,7 +52,7 @@
                     
                    <li class="nav-item  ">
                       
-                        <a href="alumni_register.html" class="btn btn-success btn-sm active nav-link fontstyle ml-2 mr-2" role="button" aria-pressed="true">Sign Up </a>
+                        <a href="profile_edit.html" class="btn btn-success btn-sm active nav-link fontstyle ml-2 mr-2" role="button" aria-pressed="true">Profile </a>
                     </li>
 
                     <li class="nav-item  ">
@@ -82,7 +82,7 @@
 </div>
   <!-- banner end-->
 
-<div class="py-5">
+<div class="py-3">
   <hr>
 </div>
 
@@ -91,41 +91,30 @@
 
 
       <center>
-        <h2 class="h2">Job Portal</h2>
+        <h2 class="h2 mb-3">Job Portal</h2>
     </center>
-
-<!-- alumni start -->
-<section class="section" style="padding-top: 10px;padding-bottom: 10px;">
-    <div class="container">
-        <div id="myBtnContainer">
-            <div class="row center ">
-               
-                <div class="col-12" style="text-align:center;">
-                   <a href="#" class="btn btn-primary btn-md active" role="button" onclick="filterSelection('all')" aria-pressed="true">All</a>
-                   <a href="#" class="btn btn-primary btn-md active" role="button" onclick="filterSelection('all')" aria-pressed="true">FST</a>
-                   <a href="#" class="btn btn-primary btn-md active" role="button" onclick="filterSelection('all')" aria-pressed="true">FBS</a>
-                   <a href="#" class="btn btn-primary btn-md active" role="button" onclick="filterSelection('all')" aria-pressed="true">FASS</a>
-                   <a href="#" class="btn btn-primary btn-md active" role="button" onclick="filterSelection('all')" aria-pressed="true">FSSS</a>
-                   
-                </div>
-            </div>
-            <hr>
-  </div>
-</div>
-</section>
 
 
 <!-- jobs -->
 
- 
- 
+  <!-- search-->
+  <div class="container">
+    <div class="row">
+          <div class="col-sm-12 mb-3">
+            <input type="text" id="myFilter" class="form-control" onkeyup="myFunction()" placeholder="Search for jobs (i.e fst,react,VUE,economics...)">
+          </div>
+        </div>
+  </div>
+        
 
-<section class="" style="margin-top: 10px;margin-bottom:10px;">
+
+<section  id="myItems" class="" style="margin-top: 10px;margin-bottom:10px;">
      
     <div class="card-blog shadow p-3 mb-2 mx-auto">
         <div class="row">
              
-            <div class="col-sm-9 border-right mb-1 mt-1">
+            <div class="col-sm-9 border-right mb-1 mt-1 search">
+              <h6 class="tags text-secondary ">fst | fass | law</h6>
                 <div>
                     <h3 class="h3 text-dark">Frontend Developer Needed</h3>
                 </div>
@@ -280,7 +269,8 @@
   <div class="card-blog shadow p-3 mb-2 mx-auto">
         <div class="row">
             
-            <div class="col-sm-9 border-right mb-1 mt-1">
+            <div class="col-sm-9 border-right mb-1 mt-1 search">
+               <h6 class="tags text-secondary">fst | economics | enviromental</h6>
                 <div>
                     <h3 class="h3 text-dark">Frontend Developer Needed</h3>
                 </div>
@@ -435,7 +425,8 @@
  <div class="card-blog shadow p-3 mb-2 mx-auto">
         <div class="row">
            
-            <div class="col-sm-9 border-right mb-1 mt-1">
+            <div class="col-sm-9 border-right mb-1 mt-1 search">
+                <h6 class="tags text-secondary">laravel | react | marketing</h6>
                 <div>
                     <h3 class="h3 text-dark">Frontend Developer Needed</h3>
                 </div>
@@ -588,7 +579,8 @@
  <div class="card-blog shadow p-3 mb-2 mx-auto">
         <div class="row">
            
-            <div class="col-sm-9 border-right mb-1 mt-1">
+            <div class="col-sm-9 border-right mb-1 mt-1 search">
+               <h6 class="tags text-secondary">html | css | angular | VUE</h6>
                 <div>
                     <h3 class="h3 text-dark">Frontend Developer Needed</h3>
                 </div>
@@ -784,58 +776,6 @@
 
 
 
-<!--  Filter start -->
-
-<script>
-    filterSelection("all")
-
-    function filterSelection(c) {
-        var x, i;
-        x = document.getElementsByClassName("filterDiv");
-        if (c == "all") c = "";
-        for (i = 0; i < x.length; i++) {
-            w3RemoveClass(x[i], "show");
-            if (x[i].className.indexOf(c) > -1) w3AddClass(x[i], "show");
-        }
-    }
-
-    function w3AddClass(element, name) {
-        var i, arr1, arr2;
-        arr1 = element.className.split(" ");
-        arr2 = name.split(" ");
-        for (i = 0; i < arr2.length; i++) {
-            if (arr1.indexOf(arr2[i]) == -1) {
-                element.className += " " + arr2[i];
-            }
-        }
-    }
-
-    function w3RemoveClass(element, name) {
-        var i, arr1, arr2;
-        arr1 = element.className.split(" ");
-        arr2 = name.split(" ");
-        for (i = 0; i < arr2.length; i++) {
-            while (arr1.indexOf(arr2[i]) > -1) {
-                arr1.splice(arr1.indexOf(arr2[i]), 1);
-            }
-        }
-        element.className = arr1.join(" ");
-    }
-
-    // Add active class to the current button (highlight it)
-    var btnContainer = document.getElementById("myBtnContainer");
-    var btns = btnContainer.getElementsByClassName("btn");
-    for (var i = 0; i < btns.length; i++) {
-        btns[i].addEventListener("click", function() {
-            var current = document.getElementsByClassName("active");
-            current[0].className = current[0].className.replace(" active", "");
-            this.className += " active";
-        });
-    }
-</script>
-
-<!--  Filter end -->
-
 
 <!--  FOOTER START -->
   
@@ -912,6 +852,6 @@
     <script src="https://unpkg.com/bootstrap-material-design@4.1.1/dist/js/bootstrap-material-design.js" integrity="sha384-CauSuKpEqAFajSpkdjv3z9t8E7RlpJ1UP0lKM/+NdtSarroVKu069AlsRPKkFBz9" crossorigin="anonymous"></script>
     <script>$(document).ready(function() { $('body').bootstrapMaterialDesign(); });</script>
 
-    
+    <script src="js/custom.js"></script>
   </body>
 </html>
